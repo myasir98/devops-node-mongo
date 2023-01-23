@@ -1,5 +1,9 @@
 version: '3.1'
 services:
+  web:
+    build: .
+    ports:
+      - 3001:3001
   mongodb:
     image: mongo
     container_name: mongo
@@ -14,7 +18,7 @@ services:
     image: mongo-express
     restart: always
     environment:
-      - ME_CONFIG_MONGO_SERVER=mongodb
+      - ME_CONFIG_MONGODB_SERVER=mongodb
       - ME_CONFIG_MONGODB_ADMINUSERNAME=admin
       - ME_CONFIG_MONGODB_ADMINPASSWORD=admin
     ports:
